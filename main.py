@@ -3,7 +3,7 @@ from models import dnn_model as dnn
 from models import fault_simulation_model as flt
 import tensorflow as tf
 import numpy as np
-os.chdir("C:\\Users\\Edwin\\Desktop\\PROJECT\\AI")
+#os.chdir("C:\\Users\\Edwin\\Desktop\\PROJECT\\AI")
 def main():
     '''
     cnn_data_file = "C:\\Users\\Edwin\\Desktop\\PROJECT\\AI\\dataset\\finaldataset.npz" # cnn data file path
