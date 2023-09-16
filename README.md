@@ -44,17 +44,19 @@ To get started with this project, follow these steps:
      pip install -r requirements.txt
      ```
 
-3. Generate and process fault data using MATLAB scripts in the "Fault Generation" folder.
+3. Edit the code to change the directory locations for saving and retrieving scalogram images.
 
-4. Prepare the dataset using `dataset_preparation.py`. This script will create a .npz file containing your dataset.
+4. Generate and process fault data using MATLAB scripts in the "Fault Generation" folder.
 
-5. Train and test the CNN model by using `predictor.py`. Adjust the model parameters as needed for your specific use case.
+5. Prepare the dataset using `dataset_preparation.py`. This script will create a .npz file containing your dataset.
 
-6. Analyze the results and use the model for transformer inter-turn fault detection.
+6. Train and test the CNN model by using `predictor.py`. Adjust the model parameters as needed for your specific use case.
+
+7. Analyze the results and use the model for transformer inter-turn fault detection.
 
 ## Conclusion
 
-This project provides a comprehensive solution for transformer inter-turn fault detection using machine learning and artificial intelligence techniques. The combination of fault generation, data preprocessing, and CNN-based prediction enables accurate detection of fault severity and location, contributing to transformer maintenance and reliability.
+This project provides a comprehensive solution for transformer inter-turn fault detection using deep learning. The combination of fault generation, data preprocessing, and CNN-based prediction enables accurate detection of fault severity and location.
 '''
 
 # run if this is the main file
