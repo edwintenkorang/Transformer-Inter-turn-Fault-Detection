@@ -58,7 +58,3 @@ To get started with this project, follow these steps:
 
 This project provides a comprehensive solution for transformer inter-turn fault detection using deep learning. The combination of fault generation, data preprocessing, and CNN-based prediction enables accurate detection of fault severity and location.
 '''
-
-# run if this is the main file
-if __name__ == '__main__':
-    main()
