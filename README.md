@@ -1,6 +1,6 @@
 # Transformer Inter-Turn Fault Detection using Artificial Intelligence
 
-This repository contains a machine learning-based solution for detecting both the severity and location of inter-turn faults in transformers using Artificial Intelligence. The project involves simulating transformer faults, capturing and processing current waveforms, and feeding them into a Convolutional Neural Network (CNN) for analysis. The detailed findings of this project can be found [here](link).
+This repository contains a machine learning-based solution for detecting both the severity and location of inter-turn faults in transformers using Artificial Intelligence. The project involves simulating transformer faults, capturing and processing current waveforms using Continuous Wavelet Transformers (CWT), and feeding them into a Convolutional Neural Network (CNN) for analysis. The detailed findings of this project can be found [here](link).
 
 ## Repository Structure
 
