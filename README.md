@@ -57,4 +57,3 @@ To get started with this project, follow these steps:
 ## Conclusion
 
 This project provides a comprehensive solution for transformer inter-turn fault detection using deep learning. The combination of fault generation, data preprocessing, and CNN-based prediction enables accurate detection of fault severity and location.
-'''
