@@ -1,112 +1,60 @@
-# inter-turn
-from models import cnn_model as cnn
-from models import dnn_model as dnn
-from models import fault_simulation_model as flt
-import tensorflow as tf
-import numpy as np
-os.chdir("C:\\Users\\Edwin\\Desktop\\PROJECT\\AI")
-def main():
-    '''
-    cnn_data_file = "C:\\Users\\Edwin\\Desktop\\PROJECT\\AI\\dataset\\finaldataset.npz" # cnn data file path
+# Transformer Inter-Turn Fault Detection using Artificial Intelligence
 
-    # create an instance of the cnn model
-    cnn_model_instance = cnn.CNNModel()
-    """ you can change the model version before anything else """
-    # cnn_model_instance.change_version(2) # comment or uncomment this line to change the model version
-    cnn_model_instance.load_data(cnn_data_file, mmap_mode='r')
-    # process the data
-    cnn_model_instance.process_data(cnn_model_instance.dataset)
-    # create a model
-    cnn_model_instance.create_model()
-    '''
-    '''
-        before compiling, you can change batch size, epochs, and learning rate for the optimizer
-    '''
-    '''
-    # # change epochs
-    # cnn_model_instance.change_epochs(10) # comment or uncomment this line to change epochs
-    # # change batch size
-    # cnn_model_instance.change_batch_size(32) # comment or uncomment this line to change batch size
-    # # change learning rate
-    # cnn_model_instance.change_learning_rate(0.001) # comment or uncomment this line to change learning rate
+This repository contains a machine learning-based solution for detecting both the severity and location of inter-turn faults in transformers using Artificial Intelligence. The project involves simulating transformer faults, capturing and processing current waveforms, and feeding them into a Convolutional Neural Network (CNN) for analysis. The detailed findings of this project can be found [here](link).
 
+## Repository Structure
 
-    # compile model
-    cnn_model_instance.compile_model()
-    # train the model 
-    cnn_model_instance.train_model()
-    # save the model
-    cnn_model_instance.save_model()
-    # save weights
-    cnn_model_instance.save_weights()
-    # visualize the model
-    cnn_model_instance.visualize_model()
+The project is organized into two main folders:
 
-'''
+### 1. Fault Generation
 
-    
-    #dnn_data_file = "C:\\Users\\Edwin\\Desktop\\PROJECT\\AI\\dataset\\percentShortsummed.pkl" # dnn data file path
-   # data_set_path_csv = "C:\\Users\\Edwin\\Desktop\\PROJECT\\AI\\dataset\\percent_csvs\\0.3.csv" # data set path for the csv file
+This folder contains MATLAB Live Script files and functions to simulate faults on each phase of the transformer, process current waveforms, and save them as scalogram images. The primary files and their purposes are as follows:
 
-    # create an instance of the dnn model
-    dnn_model_instance = dnn.DNNModel()
-  
-    # load the data
-    #dnn_model_instance.load_data(data_path=dnn_data_file)
-    # sample the data
-    #dnn_model_instance.sample_data(sample_size=10)
-    # load dataset
-    #dnn_model_instance.load_dataset()
-    # split the data
-   # dnn_model_instance.split_data(test_size=0.2, random_state=42)
-    
-    # normalize the data
-    dnn_model_instance.normalize_data()
-    # create a model
-    dnn_model_instance.create_model()
-    """ 
-        you can change the learning rate for the optimizer
-    """
-    
-    # change the learning rate
-    # dnn_model_instance.change_learning_rate(0.001) # comment or uncomment this line to change learning rate
-    # compile the model
-    dnn_model_instance.compile_model()
-    # train the model
-    dnn_model_instance.train_model()
-    # model summary
-    dnn_model_instance.model_summary()
-    # evaluate the model
-    dnn_model_instance.evaluate_model()
-    # plot the loss
-    dnn_model_instance.plot_loss()
-    # test the data
-    #dnn_model_instance.test_data(dataset_path=data_set_path_csv)
+- **Phase A Code.mlx**: Simulates faults in Phase A of the transformer.
+- **Phase B Code.mlx**: Simulates faults in Phase B of the transformer.
+- **Phase C Code.mlx**: Simulates faults in Phase C of the transformer.
+- **processdata.mlx**: Processes waveform data and saves it as scalogram images.
+- **faultgenmain.mlx**: Main script to run the entire project.
 
-    '''
-    # create an instance of the fault simulation model
-    fault_simulation_model_instance = flt.FaultSimulation()
+Additionally, the `functions` folder within this directory contains essential functions for saving scalogram images, saving data as CSV files, plotting scalogram images, and creating necessary folders for the project's operation.
 
-    # percent model path
-    model_path = 'C:\\Users\\Edwin\\Desktop\\PROJECT\\NN_EDWIN\\src\\data\\Faulty\\Scalogram\\Phase A\\Primary\\turns_0.2\\sec_2\\time_0.2'
-    # dataset path
-    data_set_path = 'energy.csv'
-    # images path
-    images_path = '.\\data\\images'
-    # decompose csv file path
-    decompose_csv_path = '.\\data\\decompose.csv'
+### 2. ML
 
-    # load model
-    fault_simulation_model_instance.load_model(
-        model_path=model_path,
-        # version=4 # uncomment this to change the default version
-    )
-    # test the model
-    fault_simulation_model_instance.test(
-        csv_file_path=decompose_csv_path, 
-        bulk_file_path=data_set_path,  
-        single_file_path=images_path
-    )
+This folder contains Python scripts for dataset preparation and prediction using a CNN model. Here are the key files and their roles:
+
+- **dataset_preparation.py**: Extracts saved scalogram images from disk, attaches labels, and binarizes them into a .npz file for efficient storage.
+- **predictor.py**: Contains code to extract images from the .npz file and feed them into a CNN for training. The model can be operated in both training and testing modes, allowing you to evaluate its performance on generated faults.
+
+## Getting Started
+
+To get started with this project, follow these steps:
+
+1. Clone this repository to your local machine:
+
+   ```
+   git clone <repository-url>
+   ```
+
+2. Set up your environment:
+
+   - Ensure you have MATLAB installed for running the fault generation scripts.
+   - Install the required Python libraries by running:
+
+     ```
+     pip install -r requirements.txt
+     ```
+
+3. Generate and process fault data using MATLAB scripts in the "Fault Generation" folder.
+
+4. Prepare the dataset using `dataset_preparation.py`. This script will create a .npz file containing your dataset.
+
+5. Train and test the CNN model by using `predictor.py`. Adjust the model parameters as needed for your specific use case.
+
+6. Analyze the results and use the model for transformer inter-turn fault detection.
+
+## Conclusion
+
+This project provides a comprehensive solution for transformer inter-turn fault detection using machine learning and artificial intelligence techniques. The combination of fault generation, data preprocessing, and CNN-based prediction enables accurate detection of fault severity and location, contributing to transformer maintenance and reliability.
 '''
 
 # run if this is the main file
