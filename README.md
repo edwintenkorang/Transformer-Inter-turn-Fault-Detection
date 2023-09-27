@@ -15,6 +15,7 @@ This folder contains MATLAB Live Script files and functions to simulate faults o
 - **Phase C Code.mlx**: Simulates faults in Phase C of the transformer.
 - **processdata.mlx**: Processes waveform data and saves it as scalogram images.
 - **faultgenmain.mlx**: Main script to run the entire project.
+- **newfinal.slx**: Simulink 630 kVA transformer model
 
 Additionally, the `functions` folder within this directory contains essential functions for saving scalogram images, saving data as CSV files, plotting scalogram images, and creating necessary folders for the project's operation.
 
